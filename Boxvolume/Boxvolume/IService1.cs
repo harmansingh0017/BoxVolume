@@ -15,9 +15,7 @@ namespace Boxvolume
 
         [OperationContract]
         string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+ 
 
         [OperationContract]
         double GetVolume(double Length, double Width, double Height);
@@ -32,23 +30,23 @@ namespace Boxvolume
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class box
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+         
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        public string request { get; set; }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public double Volume { get; set; }
+
+        [DataMember]
+        public double Height { get; set; }
+
+        [DataMember]
+        public double Length { get; set; }
+
+        [DataMember]
+        public string Width { get; set; }
     }
 }
